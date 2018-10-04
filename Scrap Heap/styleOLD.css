@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+body {
+    background-color: darkgray;
+}
+
+ul {
+    /* text-emphasis: strong; */
+    /* height: 60px; */
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+
+    list-style-type: none; 
+    
+}
+.column-side {
+    width: 10%
+
+}
+
+
+.column-main {
+    width: 90%;
+    /* padding:    30px;
+    margin-right: 0; */
+    background-color: white;
+}
+
+.employeeIndex {
+    border-color: black;
+    border: 10px;
+}
+
+
+/* .card {
+    float: right;
+} */

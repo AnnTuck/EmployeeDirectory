@@ -5,92 +5,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 
 <body>
-<ul>
-  <li>VIEW</li>
-  <li>ADD</li>
-  <li>VERIFY</li>
-  <li>UPDATE</li>
-  <li>DELETE</li>
-</ul>
-<!-- <form id="frm1" 
-action="/action_page.php">
-  First name: <input type="text" name="fname" value="Donald"><br>
-  Last name: <input type="text" name="lname" value="Duck"><br><br>
-  <input type="submit" value="Submit">
-</form>  -->
-
-<!--INPUT NEW EMPLOYEE INFO AND CALL addToList()-->
-<input type="text" id="addName" value="Name">
-<input type="text" id="addRoom" value="Room Number">
-<input type="text" id="addPhone" value="Phone Number">
-<button onclick="addToList()">Add</button>
-
-<br/>
-
-<!--INPUT EMPLOYEE TO VERIFY AND CALL isEmployed()-->
-<input type="text" id="verifyName" value="Name">
-<button onclick="isEmployed()">Verify</button>
-  <!--Indicate if entered name is an employee yes/no-->
-  <p id="isEmployee"></p>
-
-  <br/>
-
-<!--UPDATE OFFICE AND PHONE # CALL updateList()-->
-<input type="text" id="updateName" value="Name">
-<input type="text" id="updateOffice" value="Office Number">
-<input type="text" id="updatePhone" value="Phone Number">
-<button onclick="updateList()">Update</button>
-
-<br/>
-
-<!--REMOVE EMPLOYEE CALL verify and updateList()-->
-<input type="text" id="removeName" value="Name">
-<button onclick="removeFromList()">Remove</button>
-
-
-
-
-<!-- <script>
-function addToList() {
-var x = document.getElementById("addName").value;
-  // var x = document.querySelector("myText").value;
-document.getElementById("demo").innerHTML = x;
-    // document.querySelector("demo").innerHTML = x;
     
+<sidebar>
+      
+            <ul>
+                <li id="viewSel">VIEW</li>
+                <li id="addSel">ADD</li>
+                <li id="verifySel">VERIFY</li>
+                <li id="updateSel">UPDATE</li>
+                <li id="deleteSel">DELETE</li>
+              </ul>
+                            
+</sidebar> 
+                  
+            
+<main> 
+        <!-- INPUT NEW EMPLOYEE INFO AND CALL addToList()-->
+        <div id=add>
+          <input type="text" id="addName" value="Name">
+          <input type="text" id="addRoom" value="Room Number">
+          <input type="text" id="addPhone" value="Phone Number">
+          <button onclick="addToList()">Add</button>
+        </div>
+  
+        <!--INPUT EMPLOYEE TO VERIFY AND CALL isEmployed()-->
+        <div id=verify>
+          <input type="text" id="verifyName" value="Name">
+          <button onclick="isEmployed()">Verify</button>
+          <!--Indicate if entered name is an employee yes/no-->
+        </div>
+        
+        <!--UPDATE OFFICE AND PHONE # CALL updateList()-->
+        <div id=update>
+          <input type="text" id="updateName" value="Name">
+          <input type="text" id="updateOffice" value="Office Number">
+          <input type="text" id="updatePhone" value="Phone Number">
+          <button onclick="updateList()">Update</button>
+        </div>
+  
+        <!--REMOVE EMPLOYEE CALL verify and updateList()-->
+        <div id=delete>
+          <input type="text" id="removeName" value="Name">
+          <button onclick="removeFromList()">Remove</button>
+        </div>
 
-    
-    
-    
-}
-</script> -->
+        <!--INDICATE IF THE PERSON IS AN EMPLOYEE-->
+        <p id="isEmployee"></p>
+
+        <!--EMPLOYEE LIST DISPLAY-->
+        <br>
+        <br>
+        <div class ="employeeIndex"></div>
+
+</main>       
+      
+        
+
+<script src="dom.js"></script>
+<script src="employeeList.js"></script>
+<script src="app.js"></script>
 
 
-
-
-
-
-<!-- <input type="text" id="nameInput" value="Some text...">
-<input id="nameInput" name="Rooey">
-  <button id="searchButton">Search</button> -->
-    <!-- <button id="add">Add</button> -->
-
-<div class ="employeeIndex"></div>
-<!-- <div class ="employeeIndex1">Employee1</div>
-<div class ="employeeIndex1">Employee2</div>
-<div class ="employeeIndex1">Employee3</div>
-<div class ="employeeIndex1">Employee4</div>
-<div class ="employeeIndex1">Employee5</div>
-<div class ="employeeIndex1">Employee6</div> 
-<div class ="employeeIndex1">Employee7</div> -->
-
-
-  <script src="dom.js"></script>
-  <script src="employeeList.js"></script>
-  <script src="app.js"></script>
 </body>
 
 </html>
