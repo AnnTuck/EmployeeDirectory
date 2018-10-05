@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    /* for troubleshooting */
     /* border-style: solid;
     border-width: 5px; */
 }
@@ -14,7 +15,7 @@
 
 body {
     position: relative;
-    background-color: darkgray;
+    background-color: #2d2d2d;
     
     margin: 0px;
     padding: 0px;
@@ -38,25 +39,13 @@ main {
 }
 
 
-.employeeIndex {
-    /* border-style: solid;
-    border-width: 5px; */
-    /* background-color: blue; */
-}
 
 ul {
-    
+    color: white;
     margin-top: 100px;
     text-align: center;
     list-style: none;
     padding: 0px;
-    /* margin-left: 20%; */
-    /* margin-right: ;*/
-  /* margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
+   
 }
 

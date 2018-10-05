@@ -15,8 +15,7 @@ const render = function () {
         $('.employeeIndex').append(`<p>${employeeList[i].phoneNum}</p>`);
         $('.employeeIndex').append(`<hr></hr>`);
         }
-    
-    console.log("render()employeeList.length",employeeList.length);
+
 };
     
 //VERIFY NAME
@@ -25,28 +24,29 @@ function verify(name) {
     console.log("verify name", name);
     for (let i=0; i<employeeList.length; i++) {
         console.log(employeeList[i].name, name);
-        if (employeeList[i].name === name) {
+        // console.log(employeeList[i].name, /name/i);
+        if (employeeList[i].name.toLowerCase() === name.toLowerCase()) {
             var indexNameYes = i;
             console.log("indexNameYes",indexNameYes);
         } 
     };
-return indexNameYes;  //Index number of employee  
+    return indexNameYes;  //Index number of employee  
+
 };
 
 //ADD NEW EMPLOYEES TO LIST:
 function addToList() {
+    
     let newName = document.getElementById("addName").value;
     let newRoom = document.getElementById("addRoom").value;
     let newPhone = document.getElementById("addPhone").value;
      
-    console.log(newName);
     //Add new employee to the list
     employeeList[employeeList.length] = {name: newName, officeNum: newRoom, phoneNum: newPhone};
     
-    console.log(employeeList[8]);
-    console.log("render2Start");
-render();
-    console.log("render2End");
+    //Display employee list
+    render();
+    
 };
 
     
@@ -79,24 +79,21 @@ function isEmployed() {
 //UPDATE OFFICE AND PHONE NUMBER IF EMPLOYEE EXISTS
 function updateList() {
     
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
+
     //Get employee name from user input
     let isName = document.getElementById("updateName").value;
-    console.log("update name", isName);
     let index = verify(isName);  //Get index number of matched employee name
-    console.log("update index", index);
+    
 
     //If match found, update office number and phone number.  Else indicate no match found.
     if (index <= employeeList.length) {
-    console.log("old office #", employeeList[index].officeNum);
     employeeList[index].officeNum = document.getElementById("updateOffice").value;
-    console.log("new office #", employeeList[index].officeNum);
-
-    console.log("old phone #", employeeList[index].officeNum);
     employeeList[index].phoneNum = document.getElementById("updatePhone").value;
-    console.log("new phone #", employeeList[index].officeNum);
+
     } else {
         document.getElementById("isEmployee").innerHTML = "Employee Not Found";
-        console.log('no');
     }
 
 render();
@@ -106,12 +103,13 @@ render();
 //REMOVE SELECTED EMPLOYEE FROM LIST
 
 function removeFromList() {
+
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
     
     let isName = document.getElementById("removeName").value;
-    console.log("remove name", isName);
     let index = verify(isName);  //Get index number of matched employee name
-    console.log("remove index", index);
-
+    
     if (index <= employeeList.length) {
 
         employeeList.splice(index,1) //Remove Employee from the list
@@ -121,69 +119,106 @@ function removeFromList() {
         console.log('Employee Not Found');
     }
 
-render(); 
+    render(); 
 };
 
 //USER INPUT DISPLAY FUNCTIONS
 function viewInput() {
-    // document.getElementByClass("addSel").style.color = "yellow";
+    
+    //Input display change
     document.getElementById("add").style.display = "none";
-    console.log("viewSel11")
     document.getElementById("verify").style.display = "none";
     document.getElementById("update").style.display = "none";
     document.getElementById("delete").style.display = "none";
-};
 
+    //Sidebar menu color
+    document.getElementById("viewSel").style.color = "yellow";
+    document.getElementById("addSel").style.color = "white";
+    document.getElementById("verifySel").style.color = "white";
+    document.getElementById("updateSel").style.color = "white";
+    document.getElementById("deleteSel").style.color = "white";   
+};
 function addInput() {
-    // document.getElementByClass("addSel").style.color = "yellow";
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
+
     document.getElementById("add").style.display = "block";
-    console.log("addSel11")
     document.getElementById("verify").style.display = "none";
     document.getElementById("update").style.display = "none";
     document.getElementById("delete").style.display = "none";
+
+    //Sidebar menu color
+    document.getElementById("viewSel").style.color = "white";
+    document.getElementById("addSel").style.color = "yellow";
+    document.getElementById("verifySel").style.color = "white";
+    document.getElementById("updateSel").style.color = "white";
+    document.getElementById("deleteSel").style.color = "white";
 };
 function verifyInput() {
-    console.log("verifySel11")
-    // document.getElementByClass("addSel").style.color = "yellow";
+    
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
+
     document.getElementById("add").style.display = "none";
     document.getElementById("verify").style.display = "block";
     document.getElementById("update").style.display = "none";
     document.getElementById("delete").style.display = "none";
+
+    //Sidebar menu color
+    document.getElementById("viewSel").style.color = "white";
+    document.getElementById("addSel").style.color = "white";
+    document.getElementById("verifySel").style.color = "yellow";
+    document.getElementById("updateSel").style.color = "white";
+    document.getElementById("deleteSel").style.color = "white";
 };
 function updateInput() {
-    console.log("updateSel11")
-    // document.getElementByClass("updateSel").style.color = "yellow";
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
+ 
     document.getElementById("add").style.display = "none";
     document.getElementById("verify").style.display = "none";
     document.getElementById("update").style.display = "block";
     document.getElementById("delete").style.display = "none";
+
+    //Sidebar menu color
+    document.getElementById("viewSel").style.color = "white";
+    document.getElementById("addSel").style.color = "white";
+    document.getElementById("verifySel").style.color = "white";
+    document.getElementById("updateSel").style.color = "yellow";
+    document.getElementById("deleteSel").style.color = "white";
 };
 function deleteInput() {
-    console.log("deleteSel11")
-    // document.getElementByClass("addSel").style.color = "yellow";
+
+    //Clear employed status
+    document.getElementById("isEmployee").innerHTML = " ";
+ 
     document.getElementById("add").style.display = "none";
     document.getElementById("verify").style.display = "none";
     document.getElementById("update").style.display = "none";
     document.getElementById("delete").style.display = "block";
+
+    //Sidebar menu color
+    document.getElementById("viewSel").style.color = "white";
+    document.getElementById("addSel").style.color = "white";
+    document.getElementById("verifySel").style.color = "white";
+    document.getElementById("updateSel").style.color = "white";
+    document.getElementById("deleteSel").style.color = "yellow";
 };
+
+
+
 //Display the employee list when the page loads
 viewInput();
 render();
 
-// //SIDEBAR CONTROL
-// document.getElementById("add").style.display = "none";
-//???Why didn't it like me using classes for these?  Had to change them to id's???
-
+//SIDEBAR CONTROL
 document.getElementById("viewSel").addEventListener("click", viewInput);
 document.getElementById("addSel").addEventListener("click", addInput);
 document.getElementById("verifySel").addEventListener("click", verifyInput);
 document.getElementById("updateSel").addEventListener("click", updateInput);
 document.getElementById("deleteSel").addEventListener("click", deleteInput);
 
-// $('.addSel').on('click', addInput);
-// $('.verifySel').on('click', verifyInput);
-// $('.updateSel').on('click', updateInput);
-// $('.deleteSel').on('click', deleteInput);
+
 
 
 
