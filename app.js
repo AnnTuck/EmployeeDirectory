@@ -10,10 +10,11 @@ const render = function () {
 
     //Display the employee list.
     for (let i=0; i<employeeList.length; i++) {
-        $('.employeeIndex').append(`<p>${employeeList[i].name}</p>`);
-        $('.employeeIndex').append(`<p>${employeeList[i].officeNum}</p>`);
-        $('.employeeIndex').append(`<p>${employeeList[i].phoneNum}</p>`);
-        $('.employeeIndex').append(`<hr></hr>`);
+        
+        $('.employeeIndex').prepend(`<hr></hr>`);
+        $('.employeeIndex').prepend(`<p>${employeeList[i].phoneNum}</p>`);
+        $('.employeeIndex').prepend(`<p>${employeeList[i].officeNum}</p>`);
+        $('.employeeIndex').prepend(`<h4>${employeeList[i].name}</h4>`);
         }
 
 };

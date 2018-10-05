@@ -14,6 +14,7 @@
 
 
 body {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     position: relative;
     background-color: #2d2d2d;
     
@@ -47,5 +48,45 @@ ul {
     list-style: none;
     padding: 0px;
    
+}
+
+
+
+/* For Responsive Pages.
+Left background color change in for future testing if needed. */
+/* Screen width between 768px and 800px */
+@media screen and (max-width:980px) {
+    /* body {
+        background-color: green;
+    } */
+
+    h1 {
+        margin-left: 0px;
+        font-size: 18pt;
+    }
+}
+/* Screen width between 641px and 768px */
+@media screen and (max-width: 768px) {
+    /* body {
+        background-color: orange;
+    } */
+
+    .portfolio {
+        padding: 0px;
+    }
+    
+    
+}
+
+/* Screen width 640px and smaller left colors in for future testing*/
+@media screen and (max-width:640px){
+    /* body{
+        background-color: palevioletred;
+    } */
+    .colsx2 {
+        width: 100%;
+        float: clear;
+        padding-left: 0px;
+    }
 }
 
